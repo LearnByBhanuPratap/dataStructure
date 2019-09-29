@@ -1,5 +1,10 @@
 package linkedList;
 
+/**
+ * 
+ * @author Bhanu Pratap Singh
+ *
+ */
 public class DoublyLinkedList {
 	
 	private DLLNode head;
@@ -11,7 +16,7 @@ public class DoublyLinkedList {
 		tail = new DLLNode(Integer.MAX_VALUE, head, null);
 		head.setNext(tail);
 		length++;
-	}
+	} 
 	
 	public void insertAtBeging(int data){
 		DLLNode newNode = new DLLNode(data, head, head.getNext());
