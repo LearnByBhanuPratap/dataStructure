@@ -54,6 +54,27 @@ public class FindNthNodeFromEndOfLinkedList {
 		return node.getData();
 	}
 	
+	public int findNthNodeInOneScan(ListNode head, int nthNode){
+		ListNode temp = head;
+		ListNode nthNodeData = null;
+		for (int i = 1; i < nthNode; i++) {
+			temp = temp.getNext();
+		}
+		while(temp !=null){
+			if(nthNodeData == null){
+				nthNodeData = head;
+			}
+			else{
+				nthNodeData = nthNodeData.getNext();
+			}
+			temp = temp.getNext();
+		}
+		if(nthNodeData !=null){
+			return nthNodeData.getData();
+		}
+		return 0;
+	}
+	
 	public static void main(String[] args) {
 		LinkedList linkedList = new LinkedList();
 		linkedList.insertAtBegin(new ListNode(5));
@@ -68,5 +89,8 @@ public class FindNthNodeFromEndOfLinkedList {
 		
 		data = findNthNodeFromEndOfLinkedList.findNthNodeFromLastUsingHashTable(linkedList.getHead(), 4);
 		System.out.println("data="+data);
+		
+		data = findNthNodeFromEndOfLinkedList.findNthNodeInOneScan(linkedList.getHead(), 4);
+		System.out.println("data1="+data);
 	}
 }
